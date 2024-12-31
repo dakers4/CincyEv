@@ -2,13 +2,12 @@
 
     <header class="header">
         <img src="@/assets/logo.jpeg" alt="logo" class="logo">
-
+        <h1 class="title">Cincy EV</h1>
         <img src="@/assets/profile.png" alt="profile-img" class="profile-img">
         
     </header>
- 
-        <h1 class="title">Cincy EV</h1>
-        <div class="search">
+
+         <div class="search">
          <form class="search-bar">
 
              <h2 class="form-title">Search Bets</h2>
@@ -20,7 +19,7 @@
                     <label for="all"> All </label>
                 </div>
                 <div id="radio-book">
-                     <input type="radio" name="searchType" value="book" v-model="searchType" checked />
+                     <input type="radio" name="searchType" value="book" v-model="searchType" />
                     <label for="book"> Book </label>
                 </div>
 
@@ -38,71 +37,85 @@
          </form>
         </div>
 
-       
+      
+        <table>
+           
         <div class="books">
-        <h2>Your Bets by Book</h2>
 
-            <div class="book-item">
-            <!-- <button class="btn" > -->
-            <img src="@/assets/bet365.jpeg" alt="365" class="book-logo"/>
-            <!-- </button> -->
-            <h3>Bet 365</h3>
-            <ul> 
-            </ul>
-            </div>
+        <h2 class="home-header">EV Bets by Book
+            <select> 
+            <option value="ev">% EV High to low</option>
+            <option value="unit-size">Unit Size</option>
+            <option value="book">Book</option>
+            </select>
+        </h2>
+        
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>% EV</th>
+                    <th>Unit Rec</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <tr class="book-item">
+                <td>
+                    <img src="@/assets/bet365.jpeg" alt="365" class="book-logo"/>
+                    <h4>365</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
 
-            <div class="book-item">
-                <!-- <button class="btn"> -->
-                <img src="@/assets/fanduel.jpeg" alt="fanduel" class="book-logo"/>
-                <!-- </button> -->
-            <h3>FanDuel</h3>
-            <ul>
+                <tr class="book-item" >
+                <td>
+                    <img src="@/assets/fanduel.jpeg" alt="fanduel" class="book-logo"/>
+                    <h4>FanDuel</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
+                
+                <tr class="book-item">
+                <td>
+                    <img src="@/assets/draftkings.png" alt="draft kings" class="book-logo"/>
+                    <h4>DraftKings</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
 
-            </ul>
-            </div>
+                <tr class="book-item">
+                <td>
+                    <img src="@/assets/fanatics.jpeg" alt="fanatics" class="book-logo"/>
+                    <h4>Fanatics</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
 
-            <div class="book-item">
-                <!-- <button class="btn"> -->
-                <img src="@/assets/draftkings.png" alt="draft kings" class="book-logo"/>
-                <!-- </button> -->
-            <h3>DraftKings</h3>
-            <ul>
+                <tr class="book-item">
+                <td>
+                    <img src="@/assets/caesars.png" alt="caesars" class="book-logo"/>
+                    <h4>Caesars</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
 
-            </ul>
-            </div>
-
-            <div class="book-item">
-                <!-- <button class="btn"> -->
-                <img src="@/assets/fanatics.jpeg" alt="fanatics" class="book-logo"/>
-                <!-- </button> -->
-            <h3>Fanatics</h3>
-            <ul>
-
-            </ul>
-            </div>
-
-            <div class="book-item">
-                <!-- <button class="btn"> -->
-                <img src="@/assets/caesars.png" alt="caesars" class="book-logo"/>
-                <!-- </button> -->
-            <h3>Caesars</h3>
-            <ul>
-
-            </ul>
-            </div>
-
-            <div class="book-item">
-                <!-- <button class="btn"> -->
-                <img src="@/assets/espnbet.png" alt="espnbet" class="book-logo"/>
-                <!-- </button> -->
-            <h3>ESPNBet</h3>
-            <ul>
-
-            </ul>
-            </div>
-
+                <tr class="book-item">
+                <td>
+                    <img src="@/assets/espnbet.png" alt="espnbet" class="book-logo"/>
+                    <h4>ESPNBet</h4>
+                </td>
+                <td class="percEV">12 %</td>
+                <td class="unitRec">1.5 units</td>
+                </tr>
+            
+        </tbody>
         </div>
+    </table>
 
 
     <footer> 
@@ -111,9 +124,6 @@
     </footer>
 
 </template>
-
-
-
 
 
 <style scoped>
@@ -126,7 +136,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 5vh;
     display: flex;
     flex-direction: row;
@@ -138,13 +148,13 @@
     align-items: center;
 }
 
-.books {
+/* .books {
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
     padding-top: 6%;
     margin: 0;
-}
+} */
 
 .books h3 {
     margin-top: 15px;
@@ -152,34 +162,42 @@
     color: white;
 }
 
-.books ul {
-    list-style-type: none; 
-    padding: 0;
-    margin: 0 0 15px 20px; 
+
+.form-title{
+    color: white;
+    padding-top: 10px;
 }
 
 .title {
     color: white;
-    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
+    padding-right: 40%;
+    font-size: 1.5em;
 }
 
 .logo{
     height: 5vh;
     width: auto;
+    padding-right: 0%;
 }
 
-.book-item {
+/* .book-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
     padding: 5px;
     width: 100%;
+} */
+
+.percentages{
+    display: flex;
+    flex-direction: column;
 }
 
 .book-logo {
-    width: 60px;
+    width: 20px;
     height: auto;
     margin-right: 10px; 
 }
@@ -202,6 +220,7 @@ h3 {
 }
 
 .search{
+    padding-top: 1vh ;
     justify-content: center;
     align-items: center;
 }
@@ -211,11 +230,20 @@ h3 {
   color: white;
   font-family: monospace;
   border: none;
-  padding: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
   transition: background-color 0.3s ease, transform 0.3s ease;
   border-radius: 10px;
   cursor: pointer;
 }  
+
+.home-header {
+    color: white;
+    justify-content: space-around;
+    text-decoration: underline;
+}
 
 .profile-img {
     height: 3vh;
@@ -227,17 +255,21 @@ h3 {
     cursor: pointer;
 }
 
-.head-2{
+.footer{
+
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
     padding-right: 20%;
 }
 
-.footer{
-    display: flex;
-    flex-direction: row;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10%;
 }
 
 </style>
-
 
 
 <script>
@@ -262,7 +294,8 @@ export default {
         })
     }, 
     methods: {
-        searchMethod(event){
+        searchMethod(){
+            this.$router.push('/results');
             console.log(this.searchType + " " + this.searchString);
 
             service.getOdds(this.searchType, this.searchString)
@@ -272,6 +305,7 @@ export default {
                 .catch((error) => {
                     console.error('Error fetching search results:', error);
                 });
+           
         }
     }
 };
